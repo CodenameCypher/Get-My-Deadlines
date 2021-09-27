@@ -16,7 +16,7 @@
   <link href="https://imgdb.net/storage/uploads/ac13cc38320ba5ff4559ca98ae13ca0d0eba679ec0495a3037673e56c4333acf.png" rel="icon">
   
 
-  <title>Get My Deadlines | BuX</title>  
+  <title>Home | Get My Deadlines</title>  
 
 <link href="{% static 'main/main.css' %}" rel="stylesheet"></head>
 
@@ -38,10 +38,10 @@
 
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav ">
-          <li><a href="{% url 'home' %}" title="">Home</a></li>
-          <li><a href="{% url 'about' %}" title="">About</a></li>
-          <li><a href="{% url 'contact' %}" title="">Contact</a></li>
-          <li><a href="{% url 'faq' %}" title="">FAQ</a></li>
+          <li><a href="{% url 'home' %}" title="" style="color: white;">Home</a></li>
+          <li><a href="{% url 'about' %}" title=""style="color: white;">About</a></li>
+          <li><a href="{% url 'contact' %}" title=""style="color: white;">Contact</a></li>
+          <li><a href="{% url 'faq' %}" title=""style="color: white;">FAQ</a></li>
         </ul>
       </div> 
     </div>
@@ -68,14 +68,14 @@
                 
                 <form class="form" style="display: flex; flex-direction: column;" method="POST">
                   {% csrf_token %}
-                  <select id="semester" name="semester" style="margin: 10px ;padding: 10px;height: 40px; width: 300px;align-self: center; border: none; border-radius: 10px;">
+                  <select id="semester" name="semester" style="margin: 10px ;padding: 10px;height: 40px; width: 320px;align-self: center; border: none; border-radius: 10px;font-size: 13px;">
                     <option value="2021_Summer">Summer 2021</option>
                     <option value="2021_Fall">Fall 2021</option>
                     <option value="2021_Spring">Spring 2021</option>
                   </select>
-                  <input type="text" placeholder="BuX Email" name="email" style="margin: 10px ;padding: 10px;height: 40px; width: 300px;align-self: center; border: none; border-radius: 10px;" />
-                  <input type="password" placeholder="Password" name="password" style="margin: 10px ;padding: 10px;height: 40px; width: 300px;align-self: center;border: none; border-radius: 10px;" />
-                  <button type="submit" style="margin: 10px;height: 40px; width: 200px;align-self: center;border: none; border-radius: 20px; background-color: #79f579;" > Get My Deadlines </button>
+                  <input type="email" placeholder="BuX Email" name="email" style="margin: 10px ;padding: 10px;height: 40px; width: 320px;align-self: center; border: none; border-radius: 10px; font-size: 13px;" />
+                  <input type="password" placeholder="Password" name="password" style="margin: 10px ;padding: 10px;height: 40px; width: 320px;align-self: center;border: none; border-radius: 10px;font-size: 13px;" />
+                  <button type="submit" style="margin: 10px;height: 40px; width: 200px;align-self: center;border: none; border-radius: 20px; background-color: #79f579;font-size: 13px;" > Get My Deadlines </button>
                 </form>
               </div>
             </div>
@@ -85,6 +85,7 @@
     </div>
   </div>
 
+  
 <script>
   document.addEventListener("DOMContentLoaded", function (event) {
      type();

@@ -8,26 +8,27 @@
   <meta content="width=device-width,initial-scale=1" name="viewport">
   <meta content="description" name="description">
   <meta name="google" content="notranslate" />
-  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+  <meta content="Get My Deadlines | Developed by Aditya Roy" name="Aditya Roy">
 
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
-  
+
+
   <link href="https://imgdb.net/storage/uploads/ac13cc38320ba5ff4559ca98ae13ca0d0eba679ec0495a3037673e56c4333acf.png" rel="icon">
   
 
-  <title>Get My Deadlines | BuX</title>  
+  <title>Get My Deadlines | buX</title>  
 
 <link href="{% static 'main/main.css' %}" rel="stylesheet"></head>
 
-<body class="minimal">
+<body class="">
 <div id="site-border-left"></div>
 <div id="site-border-right"></div>
 <div id="site-border-top"></div>
 <div id="site-border-bottom"></div>
-<!-- Add your content of header -->
+ <!-- Add your content of header -->
 <header>
-  <nav class="navbar  navbar-fixed-top navbar-inverse">
+  <nav class="navbar  navbar-fixed-top navbar-default">
     <div class="container">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
@@ -43,26 +44,54 @@
           <li><a href="{% url 'contact' %}" title="">Contact</a></li>
           <li><a href="{% url 'faq' %}" title="">FAQ</a></li>
         </ul>
+
+
       </div> 
     </div>
   </nav>
 </header>
-<!-- Add your site or app content here -->
-  <div class="hero-full-container background-image-container white-text-container" style="background-image: url('https://img.freepik.com/free-photo/college-students-teacher-doing-group-study-learning-slope-room-blurred-people-background_44651-234.jpg?size=626&ext=jpg'); background-size: cover; background-position:center ;">
-    <div class="container">
-      <div class="row">
-        
+
+<div class="section-container">
+    <table class="table table-hover table-dark" style="margin: 7px;">
+        <tbody>
+        {% for item, vals in list.items %}
+          <tr>
+            <th scope="row" colspan="2" style="font-size: 25px; text-align: center;">Course: {{item}}</th>
+          </tr>
+          <tr>
+            <th scope="row" style="font-size: 20px;">Item</th>
+            <th scope="row" style="font-size: 20px;">Due</th>
+          </tr>
+          {% for b in vals %}
+          <tr>
+            <td style="font-size: 15px;">{{b.0}}</td>
+            {% if b.1 < currentTime %}
+            <td style="font-size: 15px; color: #c30202;">{{b.1}}</td>
+            {% else %}
+            <td style="font-size: 15px; color: rgb(72,122,0);">{{b.1}}</td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<footer class="footer-container text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>© Aditya Roy | 2021</p>
       </div>
     </div>
   </div>
+</footer>
 
 <script>
   document.addEventListener("DOMContentLoaded", function (event) {
-     type();
+     navActivePage();
   });
 </script>
-
-
 <script type="text/javascript" src="{% static 'main/main.70a66962.js' %}"></script></body>
 
 </html>

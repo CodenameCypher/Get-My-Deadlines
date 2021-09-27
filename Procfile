@@ -1,0 +1,1 @@
+web: gunicorn Get_My_Deadline.wsgi
