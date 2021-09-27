@@ -77,8 +77,9 @@ def get_my_deadlines(email, password, semester):
                     'h4').text.split('\n')[1].strip(), my_time+hours))
 
         if len(datesList) != 0:
+            pattern2 = r'\+'+semester+'/course/'
             item = re.sub(r'/courses/course-v1:buX\+', '', item)
-            item = re.sub(r'\+2021_Summer/course/', '', item)
+            item = re.sub(pattern2, '', item)
             theUltimateList[item] = datesList
 
     # for x in theUltimateList:
