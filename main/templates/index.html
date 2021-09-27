@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+  
+  <link href="https://imgdb.net/storage/uploads/ac13cc38320ba5ff4559ca98ae13ca0d0eba679ec0495a3037673e56c4333acf.png" rel="icon">
+  
+
+  <title>Get My Deadlines | BuX</title>  
+
+<link href="{% static 'main/main.css' %}" rel="stylesheet"></head>
+
+<body class="minimal">
+<div id="site-border-left"></div>
+<div id="site-border-right"></div>
+<div id="site-border-top"></div>
+<div id="site-border-bottom"></div>
+<!-- Add your content of header -->
+<header>
+  <nav class="navbar  navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav ">
+          <li><a href="{% url 'home' %}" title="">Home</a></li>
+          <li><a href="{% url 'about' %}" title="">About</a></li>
+          <li><a href="{% url 'contact' %}" title="">Contact</a></li>
+          <li><a href="{% url 'faq' %}" title="">FAQ</a></li>
+        </ul>
+      </div> 
+    </div>
+  </nav>
+</header>
+<!-- Add your site or app content here -->
+  <div class="hero-full-container background-image-container white-text-container" style="background-image: url('https://img.freepik.com/free-photo/college-students-teacher-doing-group-study-learning-slope-room-blurred-people-background_44651-234.jpg?size=626&ext=jpg'); background-size: cover; background-position:center ;">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="hero-full-wrapper">
+            <div class="text-content">
+              <h1 style="text-align: center; font-size: 50px;">Hi!<br>
+                <span id="typed-strings">
+                  <span>Tired getting deadlines from BuX?</span>
+                  <span>Chill out!</span>
+                  <span>Enter your buX credentials below</span>
+                  <span>and get all the deadlines given.</span>
+                </span>
+                <span id="typed"></span>
+              </h1>
+              <div class="login-wrap" style="text-align: center;display: flex; flex-direction: column;">
+                <h1 style="font-size: 40px;">buX Credentials</h1>
+                
+                <form class="form" style="display: flex; flex-direction: column;" method="POST">
+                  {% csrf_token %}
+                  <select id="semester" name="semester" style="margin: 10px ;padding: 10px;height: 40px; width: 300px;align-self: center; border: none; border-radius: 10px;">
+                    <option value="2021_Summer">Summer 2021</option>
+                    <option value="2021_Fall">Fall 2021</option>
+                    <option value="2021_Spring">Spring 2021</option>
+                  </select>
+                  <input type="text" placeholder="BuX Email" name="email" style="margin: 10px ;padding: 10px;height: 40px; width: 300px;align-self: center; border: none; border-radius: 10px;" />
+                  <input type="password" placeholder="Password" name="password" style="margin: 10px ;padding: 10px;height: 40px; width: 300px;align-self: center;border: none; border-radius: 10px;" />
+                  <button type="submit" style="margin: 10px;height: 40px; width: 200px;align-self: center;border: none; border-radius: 20px; background-color: #79f579;" > Get My Deadlines </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+     type();
+  });
+</script>
+
+
+<script type="text/javascript" src="{% static 'main/main.70a66962.js' %}"></script></body>
+
+</html>
