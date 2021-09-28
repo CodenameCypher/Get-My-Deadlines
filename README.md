@@ -32,4 +32,4 @@ Get My Deadlines is a web application created using Python and Django framework,
   
 ## Live
 
-https://get-my-deadlines.herokuapp.com/
+https://deadlines-finder.herokuapp.com/
