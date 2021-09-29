@@ -77,11 +77,11 @@ def get_my_deadlines(email, password, semester):
                 hours = datetime.timedelta(hours=6)
                 my_time = datetime.datetime.strptime(
                     string, '%Y-%m-%d  %H:%M:00+00:00') + hours
-                date = str(my_time.date()).replace('-', '')
-                time = str(my_time.time()).replace(':', '')
+                date = str((my_time-hours).date()).replace('-', '')
+                time = str((my_time-hours).time()).replace(':', '')
                 text = (nameText+' - '+item).replace(' ', '+')
                 gCalLink = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+text+'&dates=' + \
-                    date + 'T'+time + 'Z%2F'+date + 'T'+time
+                    date + 'T'+time + 'Z%2F'+date + 'T'+time+'Z'
                 # new_time = (my_time+hours).strftime("%A %d %B, %I:%M%p")
                 datesList.append((nameText, my_time, gCalLink))
 
