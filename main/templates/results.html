@@ -15,7 +15,7 @@
 
 
   <link href="https://imgdb.net/storage/uploads/ac13cc38320ba5ff4559ca98ae13ca0d0eba679ec0495a3037673e56c4333acf.png" rel="icon">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <title>Get My Deadlines | buX</title>  
 
@@ -55,19 +55,22 @@
         <tbody>
         {% for item, vals in list.items %}
           <tr>
-            <th scope="row" colspan="2" style="font-size: 25px; text-align: center;">Course: {{item}}</th>
+            <th scope="row" colspan="3" style="font-size: 25px; text-align: center;">Course: {{item}}</th>
           </tr>
           <tr>
             <th scope="row" style="font-size: 20px;">Item</th>
             <th scope="row" style="font-size: 20px;">Due</th>
+            <th scope="row" style="font-size: 20px; text-align: center;">Google Calendar</th>
           </tr>
           {% for b in vals %}
           <tr>
             <td style="font-size: 15px;">{{b.0}}</td>
             {% if b.1 < currentTime %}
             <td style="font-size: 15px; color: #c30202;">{{b.1}}</td>
+            <td style="font-size: 15px; color: rgb(72,122,0); text-align: center;"><a href="{{b.2}}" target="_blank"><i class="fa fa-calendar" style="font-size:29px; color: darkred;"></i></a></td>
             {% else %}
             <td style="font-size: 15px; color: rgb(72,122,0);">{{b.1}}</td>
+            <td style="font-size: 15px; color: rgb(72,122,0); text-align: center;"><a href="{{b.2}}" target="_blank"><i class="fa fa-calendar" style="font-size:29px; color: darkred;"></i></a></td>
             {% endif %}
           </tr>
           {% endfor %}

@@ -67,19 +67,25 @@ def get_my_deadlines(email, password, semester):
             s.get("https://bux.bracu.ac.bd"+item).text, 'html.parser')
         datesList = []
         for dates in course_page.find_all('span', class_='localized-datetime subtitle-name'):
-            if dates["data-datetime"] != '':
-                string = dates["data-datetime"]
-                hours = datetime.timedelta(hours=6)
-                my_time = datetime.datetime.strptime(
-                    string, '%Y-%m-%d  %H:%M:00+00:00')
-                # new_time = (my_time+hours).strftime("%A %d %B, %I:%M%p")
-                datesList.append((dates.parent.parent.parent.find(
-                    'h4').text.split('\n')[1].strip(), my_time+hours))
-
-        if len(datesList) != 0:
             pattern2 = r'\+'+semester+'/course/'
             item = re.sub(r'/courses/course-v1:buX\+', '', item)
             item = re.sub(pattern2, '', item)
+            if dates["data-datetime"] != '':
+                string = dates["data-datetime"]
+                nameText = dates.parent.parent.parent.find(
+                    'h4').text.split('\n')[1].strip()
+                hours = datetime.timedelta(hours=6)
+                my_time = datetime.datetime.strptime(
+                    string, '%Y-%m-%d  %H:%M:00+00:00') + hours
+                date = str(my_time.date()).replace('-', '')
+                time = str(my_time.time()).replace(':', '')
+                text = (nameText+' - '+item).replace(' ', '+')
+                gCalLink = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+text+'&dates=' + \
+                    date + 'T'+time + 'Z%2F'+date + 'T'+time
+                # new_time = (my_time+hours).strftime("%A %d %B, %I:%M%p")
+                datesList.append((nameText, my_time, gCalLink))
+
+        if len(datesList) != 0:
             theUltimateList[item] = datesList
 
     # for x in theUltimateList:
